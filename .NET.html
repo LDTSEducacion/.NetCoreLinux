@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 5%;
+        }
+        img{
+            
+            width: 30%;
+        }
+        #p{
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Desplegar aplicación ASP.NETCORE-Centos</h1>
+    </header>
+    <section>
+        <ol>
+            <div>
+           <p id="p">1- Agregar el repositorio de microsoft</p>
+            <p>Para ello ejecutamos el siguiente comando.</p>
+            <img src="IMG/uno.JPG" alt="">
+        </div>
+        <div>
+            <p id="p">2- Instalación del SDK y runtime de .NET Core</p>
+            <p>
+
+                Para instalar el SDK únicamente debemos ejecutar el siguiente comando</p>
+                <img src="IMG/dos.JPG" alt="">
+                <p> para instalar el runtime ejecutaremos un comando muy similar</p>
+                <img src="IMG/tres.JPG" alt="">
+        </div>
+        <div>
+            <p id="p">3- Instalar runtime de ASP.NET Core</p>
+            <p>Como vamos a ejecutar una página web, vamos a instalar tambien el runtime de ASP.NET 
+
+                Para ello ejecutamos el comando y a funcionar. </p>
+                <img src="IMG/cuatro.JPG" alt="">
+        </div>
+        <div>
+            <p id="p">4- publicar la aplicación </p>
+            <p> ejecutamos el siguiente comando en visual studio: dotnet publish -c Release
+
+                La ruta por defecto, de los ficheros publicados, será la siguiente $Proyecto\bin\Release\netcoreapp3.1\publish\</p>
+        </div>
+        <div>
+            <p id="p">5- Copiar los ficheros al servidor</p>
+            <p>Solo necesitamos copiar la carpeta publish</p>
+        </div>
+        <div>
+            <p id="p">7- Ejecutar nuestra app web</p>
+            <p>Para ejecutar una aplicacion ASP.NET Core en linux, debemos ir a la ruta donde hemos copiado los ficheros y ejecutar el comando dotnet ejemploApp_assembly.dll</p>
+            <p>Veremos un mensaje en la terminal el cual nos indica que la app está escuchando en la url http://localhost:5000 -podemos cambiar el puerto en la app manualmente-</p>
+
+        </div>
+        <div>
+            <p id="p">8- Creación de un servicio en Linux</p>
+            <p>Ahora mismo tal y como tenemos todo configurado, debemos ejecutar el comando dotnet cada vez que reiniciamos nuestro servidor y eso no es practico</p>
+            <p>Para ello vamos a automatizar su ejecución.
+
+                primero debemos ir a la carpeta donde se encuentran los servicios en linux</p>
+                <img src="IMG/cinco.JPG" alt="">
+                <p>Y aquí debemos crear un servicio, para facilitar el sentido le añadiremos una “extensión” con .service, por lo que creamos el fichero:</p>
+                <img src="IMG/seis.JPG" alt="">
+                <p>y pegamos el siguiente contenido - recuerda cambiar la ruta por la de tu aplicación </p>
+                <img src="IMG/siete.JPG" alt="">
+                <p>Ahora debemos habilitar el servicio con el comando: sudo systemctl enable webEjemplo.service</p>
+                <p>Si todo está correcto, nos saldrá un mensaje como el siguiente</p>
+                <img src="IMG/ocho.JPG" alt="">
+        </div>
+        <div>
+            <p id="p">9- Configurar NGINX como proxy inverso (reverse proxy)</p>
+            <p>Con esto lo que tenemos es nuestra aplicación corriendo en nuestro servidor en localhost. lo cual quiere decir que NO podemos acceder a ella desde el exterior.
+
+                Para acceder a ella desde el exterior, debemos apuntar nuestro servidor web NGINX  a la url en la cual esta escuchando la aplicación, en nuestro caso localhost:5000</p>
+        </div>
+        </ol>
+    </section>
+    <footer class="text-center bg-dark ">
+        <small class="text-white">Ruben Plaza Garcia 2020 | Sistemas Informáticos | DAW 1º</small>
+       </footer>
+    
+</body>
+</html>

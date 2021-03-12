@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Kotlin</title>
+    <style>
+        #app{
+   
+    margin-left: 8%;
+    margin-top: 2%;
+}
+        h1{
+            text-align: center;
+        }
+        p{
+            width: 80%;
+            text-align: center;
+            margin-left: 8%;
+        }
+        img{
+            margin-left: 30%;
+            width: 30%;
+        }
+        video{
+            margin-left: 30%;
+    margin-top: 5%;
+    width: 640px;
+    height: 480px;
+    border: black 5px solid;
+    margin-bottom: 5%;
+}
+#sitios{
+   
+   margin-bottom: 5%;
+  width: 45%;
+  margin-left: 28%;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KotlinMovie</h1>
+    </header>
+    <section>
+        <p>Vamos a crear una aplicación que va a leer un listado de películas de un fichero JSON y las
+            vamos a mostrar por pantalla. Posteriormente, mostraremos el detalle de cada película y un
+            buscador.</p>
+            <p>Accedemos al Activity_main.XML y configuramos la vista, quedará de esta manera.</p>
+            <img src="IMG/foto1.JPG" alt="foto1"/>
+            <p>Creamos un paquete “Utils” en el que vamos a crear una clase “AspectRatioImage”; ésta la
+                vamos a utilizar para usar el “ImageViuw” para ajustarla al ratio que nosotros le pongamos.</p>
+                <p>Vamos al código XML “Item_Movie”, donde configuraremos la vista de la película. Quedará de
+                    esta manera</p>
+                    <img src="IMG/foto2.JPG" alt="foto2"/>
+                    <p>Vamos al “MainActivity”, pero antes, vamos a meter el fichero JSON en la carpeta “Assets”.
+                        Creamos un modelo llamado “Movie” que va a ser nuestro objeto.</p>
+                        <img src="IMG/nuevo.JPG" alt="foto3"/>
+                        <p>Creamos en la carpeta “Utils” una clase llamada “Extensión” donde vamos a tener un método
+                            que va a leer el fichero JSON.</p>
+                            <img src="IMG/nuevp2.JPG" alt="foto4"/>
+                            <p>
+                                En “MainActivity” creamos un método, “GetListFromJason”, que nos va a devolver
+directamente el listado. En este método vamos a crear el listado, quedaría así.
+                            </p>
+                            <img src="IMG/foto5.JPG" alt=""/>
+
+                            <p>Pasamos a mostrar por pantalla el listado de las películas.</p>
+                            <p>Lo primero que vamos a crear en el paquete Adapter, es una clase “MoviesViewHolder”,
+                                donde crearemos un método en el que vamos a pasar lo que obtenemos del fichero JSON a la
+                                vista, el método quedaría así.</p>
+                                <img src="IMG/foto6.JPG" alt=""/>
+                                <p>Creamos una nueva clase que va a ser el adaptador, a esta clase le vamos a pasar el
+                                    “ViuwHolder” creado antes y en ella vamos a empezar a crear nuestros métodos. El primer
+                                    método se llamará “OnCreate” que será el primero en ejecutarse, posteriormente, creamos el
+                                    segundo método se llamará “GetItemCount”; y el ultimo método lo llamaremos
+                                    “OnBindViewHolder”, todo quedaría así.</p>
+                                    <img src="IMG/foto7.JPG" alt=""/>
+                                    <p>Nos vamos al “MainActivity” y modificamos el método “OnCreate”; antes creamos un método
+                                        llamado “RefreshList” que recibirá un listado de películas. Este método será muy útil en el caso
+                                        que queramos refrescar o cargar varios listados.
+                                        Antes de compilar la aplicación tenemos que dar permiso a internet, para ello, accedemos al
+                                        “AndoidManifest” y añadimos esta línea.</p>
+                                        <img src="IMG/foto8.JPG" alt=""/>
+                                        <p>Ahora vamos a pasar al siguiente nivel, mostraremos el detalle de cada película, para ello
+                                            vamos a ir al adaptador para realizar una pequeña modificación, modificamos los métodos
+                                            “OnBindViuwHolder” y también creamos un nuevo método que se llamara “OnMovieClick” que
+                                            recibirá la película y mostrara el detalle. El método quedaría así.</p>
+                                            <img src="IMG/foto9.JPG" alt=""/>
+                                            <p>Nos vamos al “DitailActivity” donde recibiremos ese detalle, para ello creamos el método
+                                                “RetrieveMuvi”. En este método creamos la pantalla y en el siguiente que vamos a crear,
+                                                
+                                                imprimiremos lo creado antes, el método nuevo se llamará “RenderUi” y quedaría así
+                                .</p>
+                                <img src="IMG/foto10.JPG" alt=""/>
+                                <p>Con esto ya podemos ver el detalle de cada película.
+                                    Ahora vamos a implementar un buscador para buscar por título.
+                                    Implementamos estos dos métodos dentro del “MainActivity”; el método de lo que se va a
+                                    encargar es de cuando el usuario escriba y pulse en la lupa se va a ejecutar el método
+                                    OnQUERYText y luego Submit; y cuando el usuario escriba, se va a ejecutar el
+                                    OnQueryTextChange.
+                                    Ahora vamos a crear el método que va a filtrar por el título, este método “FilterByName” se
+                                    encargara de añadir un filtrado y buscar la película correcta. Quedaría así.</p>
+                                    <img src="IMG/foto11.JPG" alt=""/>
+                                    <div  id="app">
+                                        <p>Enlace al Repositorio
+                                             <a href="https://gitlab.com/RubenPlaza/kotlin-slt">appKotlinMovie</a></p>
+                                       </div>
+                                    <div>
+                                        <video src="WhatsApp Video 2021-03-11 at 20.27.33.mp4" controls ></video>
+                                    </div>
+
+                                    <div id="sitios" class="col-sm text-center" >
+                                        <h4 class="bg-dark text-white">Sitios donde he buscado información</h4>
+                                        
+                                            <p><a href="https://openwebinars.net/academia/aprende/android/">Curso de Android Studio en openwebinars</a></p>
+                                            <p><a href="https://developer.android.com/docs?hl=es-419">Documentación de Android</a></p>
+                                            
+                                        
+                                    </div>
+    </section>
+    <footer class="text-center bg-dark ">
+        <small class="text-white">Ruben Plaza Garcia 2020 | Sistemas Informáticos | DAW 1º</small>
+       </footer>
+</body>
+</html>
